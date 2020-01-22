@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return 'about';
+});
+
+Route::get('/content', function () {
+    print("content");
+});
+
+Route::get('/page', function () {
+    print("page");
+});
+
+Route::get('/posts/{id}', function ($id) {
+    return 'single post: '.$id;
+});
