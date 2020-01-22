@@ -23,10 +23,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/page', function () {
-    print("page");
+Route::get('/posts', function () {
+    return view('posts.list');
 });
 
 Route::get('/posts/{id}', function ($id) {
-    return 'single post: '.$id;
+    return view('posts.show');
 });
