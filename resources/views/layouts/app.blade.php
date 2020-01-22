@@ -11,6 +11,7 @@
     <div class="wrapper">
         @include('layouts.header')
         @yield('hero')
+        @yield('page-title')
         @yield('content')
         @include('layouts.footer')
     </div>
