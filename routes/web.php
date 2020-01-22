@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return 'about';
+    return view('about');
 });
 
-Route::get('/content', function () {
-    print("content");
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 Route::get('/page', function () {

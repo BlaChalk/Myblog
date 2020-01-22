@@ -5,8 +5,13 @@
 
 <!--favicon icon-->
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-
-<title>General 1</title>
+@if ($page=='about')
+    <title>about us</title>
+@elseif($page=='contact')
+    <title>contact us 1</title>
+@else
+    <title>General 1</title>
+@endif
 
 <!--common style-->
 <link href='http://fonts.googleapis.com/css?family=Abel|Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900,900italic,200italic,200' rel='stylesheet' type='text/css'>
