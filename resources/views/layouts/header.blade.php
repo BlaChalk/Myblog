@@ -11,9 +11,9 @@
                 <!--logo start-->
                 <a href="/" class="logo-brand">
                     @if ($page=='index')
-                        <img class="retina" src="assets/img/logo-dark.png" alt="Massive">
+                        <img class="retina" src="/assets/img/logo-dark.png" alt="Massive">
                     @else
-                        <img class="retina" src="assets/img/logo.png" alt="Massive">
+                        <img class="retina" src="/assets/img/logo.png" alt="Massive">
                     @endif
 
                 </a>
@@ -24,8 +24,6 @@
                     <li class="@if($page=='index')active @endif"><a href="/">Home</a>
                     </li>
                     <li class="@if($page=='about')active @endif"><a href="/about">About</a>
-                    </li>
-                    <li class="@if(request()->is('posts'))active @endif"><a href="/posts">Blog</a>
                     </li>
                     <li class="@if(request()->is('posts'))active @endif"><a href="/posts">Blog</a>
                     </li>
