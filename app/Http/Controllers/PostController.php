@@ -31,7 +31,7 @@ class PostController extends Controller
         $post->fill($request->all());
         $post->save();
 
-        return redirect('/posts');
+        return redirect('/posts/admin');
     }
 
     public function show(Post $post)
@@ -50,5 +50,12 @@ class PostController extends Controller
         $post->save();
 
         return redirect('/posts/admin');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return redirect('posts/admin');
     }
 }
