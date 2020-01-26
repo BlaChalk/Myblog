@@ -30,6 +30,7 @@ Route::get('/contact', function () {
 
 Route::get('/posts/admin', 'PostController@admin');
 Route::get('posts/create', 'PostController@create');
+Route::get('/posts/show/{post}', 'PostController@show');
 
 Route::post('/posts', 'PostController@store');
 Route::get('/posts/{post}', 'PostController@show');

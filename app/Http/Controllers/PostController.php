@@ -33,4 +33,9 @@ class PostController extends Controller
 
         return redirect('/posts');
     }
+
+    public function show(Post $post)
+    {
+        return view('/posts.showByAdmin', ['post' => $post]);
+    }
 }
