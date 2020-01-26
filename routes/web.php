@@ -29,17 +29,17 @@ Route::get('/contact', function () {
 // Routing: create / edit / list
 
 Route::get('/posts/admin', 'PostController@admin');
-Route::get('posts/create', 'PostController@create');
+Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/show/{post}', 'PostController@show');
 
 Route::post('/posts', 'PostController@store');
 Route::get('/posts/{post}', 'PostController@show');
 Route::put('/posts/{post}', 'PostCOntroller@update');
-Route::delete('posts/{post}', 'PostController@destroy');
+Route::delete('/posts/{post}', 'PostController@destroy');
 
 
-Route::get('posts/{post}/edit', 'PostController@edit');
-Route::get('posts', 'PostController@index');
+Route::get('/posts/{post}/edit', 'PostController@edit');
+Route::get('/posts', 'PostController@index');
 
 
 // Route::get('/posts', function () {
