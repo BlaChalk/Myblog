@@ -38,11 +38,6 @@
 
         </div>
     </div>
-
-<form id='delete-form' action="/posts/id" method="post">
-    <input type="hidden" name="_method" value="delete">
-    @csrf
-</form>
 @endsection
 
 @section('script')
@@ -51,7 +46,9 @@
         let result = confirm('Do you want to delete this Post?');
         if (result){
             let actionURL = '/posts/'+id;
-            $('#delete-form').attr('action', actionURL).submit();
+            $.post(actionURL, {_method: 'delete'}).done(function () {
+                location.reload();
+            })
         }
     }
 </script>
