@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('page-title')
+@section('title-page')
 <section class="page-title">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="text-uppercase">Blog Single</h4>
+                <h4 class="text-uppercase">Blog Listing</h4>
                 <ol class="breadcrumb">
-                    <li><a href="/">Home</a>
+                    <li><a href="#">Home</a>
                     </li>
-                    <li class="active"><a href="/posts">Blog</a>
+                    <li class="active"><a href="#">Blog</a>
                     </li>
-                    <li class="active">Blog Single</li>
+                    <li class="active">Blog Listing</li>
                 </ol>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             <div class="full-width">
                                 <img src="/assets/img/post/p12.jpg" alt="" />
                             </div>
-                            <h4 class="text-uppercase"><a href="blog-single.html">standard blog post with photo</a></h4>
+                            <h4 class="text-uppercase"><a href="#">{{ $post->title }}</a></h4>
                             <ul class="post-meta">
                                 <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
                                 </li>
@@ -42,11 +42,7 @@
                                 </li>
                             </ul>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipisicing elit</a>. Ab adipisci architecto consequatur debitis eos eum hic illum ipsam itaque laborum magni minima molestias nostrum numquam odit officia pariatur
-                                perspiciatis placeat porro quae rem, sequi sit soluta temporibus ullam voluptas voluptates. Aliquid amet architecto culpa cumque eius enim esse eum eveniet ex, fugiat illo ipsum laudantium, minima nemo porro sequi
-                                tempora veritatis vero voluptate, voluptatem. Culpa ducimus est eveniet, iste iusto officiis quas repudiandae rerum sit tenetur totam voluptas? Accusamus accusantium alias aliquam aliquid animi commodi dignissimos
-                                dolore doloremque dolorum exercitationem fugiat illum, iste laboriosam maiores molestiae nam odio officia officiis omnis optio placeat quaerat quia quibusdam quis quo ratione sapiente sed sequi sit tenetur unde
-                                ut veniam voluptas! Dicta, voluptatum!</p>
+                        <p>{{ $post->content }}</p>
 
                             <div class="blog-post">
                                 <blockquote class="quote-post">
@@ -58,6 +54,13 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at debitis deleniti dignissimos ea enim iste laboriosam nihil omnis possimus quia, tempora, totam voluptatibus! Animi consectetur dolor in laboriosam
                                 unde.</p>
 
+                            <pre>
+.blog-classic {
+margin-bottom: 70px;
+padding-bottom: 70px;
+border-bottom: 1px solid #efefef;
+}
+</pre>
                             <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 
@@ -137,7 +140,7 @@
                                 <li class="media">
 
                                     <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                        <img class="media-object comment-avatar" src="assets/img/post/a1.png" alt="" width="50" height="50">
                                     </a>
 
                                     <div class="media-body">
@@ -157,7 +160,7 @@
                                         <div class="media">
 
                                             <a class="pull-left" href="#">
-                                                <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                                <img class="media-object comment-avatar" src="assets/img/post/a1.png" alt="" width="50" height="50">
                                             </a>
 
                                             <div class="media-body">
@@ -179,7 +182,7 @@
                                                 <div class="media">
 
                                                     <a class="pull-left" href="#">
-                                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                                        <img class="media-object comment-avatar" src="assets/img/post/a1.png" alt="" width="50" height="50">
                                                     </a>
 
                                                     <div class="media-body">
@@ -216,7 +219,7 @@
                                 <li class="media">
 
                                     <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                        <img class="media-object comment-avatar" src="assets/img/post/a1.png" alt="" width="50" height="50">
                                     </a>
 
                                     <div class="media-body">
@@ -242,7 +245,7 @@
                                 <li class="media">
 
                                     <a class="pull-left" href="#">
-                                        <img class="media-object comment-avatar" src="/assets/img/post/a1.png" alt="" width="50" height="50">
+                                        <img class="media-object comment-avatar" src="assets/img/post/a1.png" alt="" width="50" height="50">
                                     </a>
 
                                     <div class="media-body">
@@ -341,7 +344,7 @@
                             <h6 class="text-uppercase">about author</h6>
                         </div>
                         <div class="full-width avatar">
-                            <img src="/assets/img/post/avatar.jpg" alt="" />
+                            <img src="assets/img/post/avatar.jpg" alt="" />
                         </div>
                         <p>Persuaded to return to the shoemaker's shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
 
@@ -358,7 +361,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -369,7 +372,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb-2.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb-2.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -380,7 +383,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb-3.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb-3.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -466,7 +469,6 @@
             </div>
         </div>
     </div>
-
 
 </section>
 @endsection

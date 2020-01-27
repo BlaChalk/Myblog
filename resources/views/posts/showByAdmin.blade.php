@@ -9,7 +9,7 @@
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a>
                     </li>
-                    <li class="active"><a href="/posts">Blog</a>
+                    <li class="active"><a href="/posts">Blog Admin Panel</a>
                     </li>
                     <li class="active">Blog Single</li>
                 </ol>
@@ -20,21 +20,18 @@
 @endsection
 
 @section('content')
-<section class="body-content ">
+<section class="page-content">
+    <div class="container">
 
-    <div class="page-content">
-        <div class="container">
-            <h1>{{ $post->title }}</h1>
-            <div class="toolbox">
-                <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
-            <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">Delete</button>
-            </div>
-            <div class="content">
-                {{ $post->content }}
-            </div>
+        <div class="toolbox clearfix">
+            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">edit</a>
+            <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">delete</button>
         </div>
+        <h1>{{ $post->title }}</h1>
+        <div class="content">
+            {{ $post->content }}
+        </div>
+
     </div>
-
-
 </section>
 @endsection

@@ -9,9 +9,9 @@
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a>
                     </li>
-                    <li class="active"><a  href="/posts/admin">Blog Admin Panel</a>
+                    <li class="active"><a href="/posts/admin">Blog Admin Panel</a>
                     </li>
-                    <li class="active">Edit post</li>
+                    <li class="active">Edit Post</li>
                 </ol>
             </div>
         </div>
@@ -20,26 +20,24 @@
 @endsection
 
 @section('content')
-<div class="page-content">
+<section class="page-content">
     <div class="container">
 
         <form method="post" action="/posts/{{ $post->id }}">
-            @csrf
             <input type="hidden" name="_method" value="put">
+            @csrf
             <div class="form-group">
-            <label for="exampleInputEmail1">Title</label>
-            <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title" value="{{ $post->title }}">
+              <label for="exampleInputTitle1">Title</label>
+              <input type="text" class="form-control" name="title" id="exampleInputTitle" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $post->title }}">
             </div>
             <div class="form-group">
-            <label for="exampleInputPassword1">Content</label>
-            <textarea class="form-control" name="content" id="" cols="30" rows="10">{{ $post->content }}</textarea>
+              <label for="exampleInputContent1">Content</label>
+              <textarea class="form-control" name="content" id="exampleInputContent1" placeholder="Write something on here :D" cols="30" rows="10">{{ $post->content }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="button" class="btn btn-default" onclick="window.history.back()">Cancel</button>
-        </form>
+          </form>
 
     </div>
-</div>
-
-
+</section>
 @endsection

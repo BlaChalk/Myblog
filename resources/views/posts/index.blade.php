@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <h4 class="text-uppercase">Blog Listing</h4>
                 <ol class="breadcrumb">
-                    <li><a href="/">Home</a>
+                    <li><a href="#">Home</a>
                     </li>
                     <li class="active"><a href="#">Blog</a>
                     </li>
@@ -21,12 +21,13 @@
 
 @section('content')
 <section class="body-content ">
+
     <div class="page-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    @foreach ($posts as $key => $posts)
                     <!--classic image post-->
+                    @foreach ($posts as $item => $post)
                     <div class="blog-classic">
                         <div class="date">
                             24
@@ -34,9 +35,9 @@
                         </div>
                         <div class="blog-post">
                             <div class="full-width">
-                                <img src="/assets/img/post/p12.jpg" alt="" />
+                                <img src="assets/img/post/p12.jpg" alt="" />
                             </div>
-                            <h4 class="text-uppercase"><a href="/posts/9487">{{ $posts->title }}</a></h4>
+                        <h4 class="text-uppercase"><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h4>
                             <ul class="post-meta">
                                 <li><i class="fa fa-user"></i>posted by <a href="#">admin</a>
                                 </li>
@@ -45,11 +46,13 @@
                                 <li><i class="fa fa-comments"></i>  <a href="#">4 comments</a>
                                 </li>
                             </ul>
-                            <p>{{ str_limit($posts->content, 250) }}</a>
+                            <p>{{ str_limit($post->content, 250) }}</p>
+                        <a href="/posts/{{ $post->id }}" class="btn btn-small btn-dark-solid  "> Continue Reading</a>
                         </div>
                     </div>
-                    <!--classic image post-->
                     @endforeach
+
+                    <!--classic image post-->
 
                     <!--pagination-->
                     <div class="text-center">
@@ -94,7 +97,7 @@
                             <h6 class="text-uppercase">about author</h6>
                         </div>
                         <div class="full-width avatar">
-                            <img src="/assets/img/post/avatar.jpg" alt="" />
+                            <img src="assets/img/post/avatar.jpg" alt="" />
                         </div>
                         <p>Persuaded to return to the shoemaker's shop, young Edward struggled on till three years of his wretched apprenticeship had passed over.</p>
 
@@ -111,7 +114,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -122,7 +125,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb-2.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb-2.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -133,7 +136,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="/assets/img/post/post-thumb-3.jpg" alt="" />
+                                        <img src="assets/img/post/post-thumb-3.jpg" alt="" />
                                     </a>
                                 </div>
                                 <div class="w-desk">
@@ -219,5 +222,7 @@
             </div>
         </div>
     </div>
+
+
 </section>
 @endsection
