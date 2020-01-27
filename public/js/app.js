@@ -19289,6 +19289,19 @@ $.ajaxSetup({
   }
 });
 
+deletePost = function deletePost(id) {
+  var result = confirm('Do you want to delete this Post?');
+
+  if (result) {
+    var actionURL = '/posts/' + id;
+    $.post(actionURL, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/posts/admin';
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
