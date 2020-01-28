@@ -28,9 +28,9 @@ Route::get('/contact', function () {
 // CRUD
 // Routing: create / edit / list
 
-Route::get('/posts/admin', 'PostController@admin');
-Route::get('/posts/admin/{post}', 'PostController@showByAdmin');
-Route::resource('/posts', 'PostController');
+Route::get('/posts/admin', 'PostController@admin')->middleware('auth');
+Route::get('/posts/admin/{post}', 'PostController@showByAdmin')->middleware('auth');
+Route::resource('/posts', 'PostController')->middleware('auth');
 
 // Route::get('/posts', function () {
 //     $posts= [1,2,3,4,5];
