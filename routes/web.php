@@ -40,3 +40,7 @@ Route::resource('/posts', 'PostController');
 // Route::get('/posts/{id}', function ($id) {
 //     return view('posts.show');
 // });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
