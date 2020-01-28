@@ -15,11 +15,6 @@ class PostController extends Controller
         return view('/posts.admin', ['posts' => $posts]);
     }
 
-    public function showByAdmin(Post $post)
-    {
-        return view('/posts.showByAdmin', ['post' => $post]);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +60,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('/posts.show', ['post' => $post]);
+        if(Auth::check())
+            return view('/posts.showByAdmin', ['post' => $post]);
+        else
+            return view('/posts.show', ['post' => $post]);
     }
 
     /**

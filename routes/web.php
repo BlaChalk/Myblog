@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index');
@@ -29,8 +30,9 @@ Route::get('/contact', function () {
 // Routing: create / edit / list
 
 Route::get('/posts/admin', 'PostController@admin')->middleware('auth');
-Route::get('/posts/admin/{post}', 'PostController@showByAdmin')->middleware('auth');
 Route::resource('/posts', 'PostController')->middleware('auth');
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/{post}', 'PostController@show');
 
 // Route::get('/posts', function () {
 //     $posts= [1,2,3,4,5];
