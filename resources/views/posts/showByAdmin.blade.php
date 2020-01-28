@@ -28,6 +28,7 @@
             <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">delete</button>
         </div>
         <h1>{{ $post->title }}</h1>
+    <small class="author">{{ $post->user->name }}</small>
         <div class="content">
             {{ $post->content }}
         </div>
