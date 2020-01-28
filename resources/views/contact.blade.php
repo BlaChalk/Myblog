@@ -1,4 +1,4 @@
-@extends('layouts.app', [$page='contact'])
+@extends('layouts.frontend', [$page='contact'])
 
 @section('page-title')
 <section class="page-title background-title dark banner-contact">

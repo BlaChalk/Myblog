@@ -1,4 +1,4 @@
-@extends('layouts.app', [$page='index'])
+@extends('layouts.frontend', [$page='index'])
 
 @section('hero')
     <div class="banner-state vertical-align text-center banner-13">
