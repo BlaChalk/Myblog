@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('page-title')
 <section class="page-title">
@@ -7,11 +7,11 @@
             <div class="col-md-12">
                 <h4 class="text-uppercase">Blog Single</h4>
                 <ol class="breadcrumb">
-                    <li><a href="/">Home</a>
+                    <li class="breadcrumb-item"><a href="/">Home</a>
                     </li>
-                    <li class="active"><a href="/posts">Blog Admin Panel</a>
+                    <li class="breadcrumb-item"><a href="/posts">Blog Admin Panel</a>
                     </li>
-                    <li class="active">Blog Single</li>
+                    <li class="breadcrumb-item active">Blog Single</li>
                 </ol>
             </div>
         </div>
@@ -23,12 +23,14 @@
 <section class="page-content">
     <div class="container">
 
-        <div class="toolbox clearfix">
-            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">edit</a>
+        <h1 class="mb-0">{{ $post->title }}</h1>
+        <small class="author">Author / {{ $post->user->name }}</small>
+        <div class="toolbox clearfix mt-4">
+            <div class="float-left">
+                            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">edit</a>
             <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">delete</button>
+            </div>
         </div>
-        <h1>{{ $post->title }}</h1>
-    <small class="author">{{ $post->user->name }}</small>
         <div class="content">
             {{ $post->content }}
         </div>

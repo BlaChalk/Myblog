@@ -28,5 +28,5 @@
       <textarea class="form-control" name="content" id="exampleInputContent1" placeholder="Write something on here :D" cols="30" rows="10">{{ $post->content }}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <button type="button" class="btn btn-default" onclick="window.history.back()">Cancel</button>
+    <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
   </form>
