@@ -31,7 +31,7 @@ class StoreBlogPost extends FormRequest
     public function rules()
     {
         return [
-                'title' => 'bail|required|unique:posts|max:255',
+                'title' => 'required|max:255',
                 'content' => 'required',
         ];
     }
