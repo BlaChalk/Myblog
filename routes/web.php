@@ -34,14 +34,10 @@ Route::resource('/posts', 'PostController')->middleware('auth');
 Route::get('/posts', 'PostController@index');
 Route::get('/posts/{post}', 'PostController@show');
 
-// Route::get('/posts', function () {
-//     $posts= [1,2,3,4,5];
-//     return view('posts.list', ['posts'=>$posts]);
-// });
+// Category
 
-// Route::get('/posts/{id}', function ($id) {
-//     return view('posts.show');
-// });
+Route::resource('categories', 'CategoryController')->except('show')->middleware('auth');
+//
 
 Auth::routes();
 
