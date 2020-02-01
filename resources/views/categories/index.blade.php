@@ -33,7 +33,7 @@
                 <span class="float-right">
                     {{-- <a href="/categories/admin/{{ $category->id }}" class="btn btn-default">view</a> --}}
                     <a href="/categories/{{ $category->id }}/edit" class="btn btn-primary" >edit</a>
-                    <button class="btn btn-danger" onclick="deletecategory({{ $category->id }})">delete</button>
+                    <button class="btn btn-danger" onclick="deleteCategory({{ $category->id }})">delete</button>
                 </span>
 
              </li>

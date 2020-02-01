@@ -30,3 +30,29 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+deletePost = function (id) {
+    let result = confirm('Do you want to delete this post?');
+    if (result) {
+    let actionURL = '/posts/'+id;
+        $.post(actionURL, {_method: 'delete'}).done(function () {
+            location.href = '/posts/admin';
+        })
+    }
+}
+
+deleteCategory = function (id) {
+    let result = confirm('Do you want to delete this category?');
+    if (result) {
+    let actionURL = '/categories/'+id;
+        $.post(actionURL, {_method: 'delete'}).done(function () {
+            location.href = '/categories';
+        })
+    }
+}
