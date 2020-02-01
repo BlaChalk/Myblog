@@ -37,6 +37,7 @@ Route::get('/posts/{post}', 'PostController@show');
 // Category
 
 Route::resource('categories', 'CategoryController')->except('show')->middleware('auth');
+Route::get('/posts/category/{category}', 'PostController@indexWithCategory');
 //
 
 Auth::routes();
