@@ -29,6 +29,9 @@
              <li  class="list-group-item clearfix">
                 <div class="float-left">
                     <div><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></div>
+                    @if (isset($post->category))
+                        <small class="d-block text-muted">{{ $post->category->name }}</small>
+                    @endif
                      <small class="author">{{ $post->user->name }}</small>
                 </div>
                 <span class="float-right">
@@ -36,7 +39,6 @@
                     <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary" >edit</a>
                     <button class="btn btn-danger" onclick="deletePost({{ $post->id }})">delete</button>
                 </span>
-
              </li>
             @endforeach
         </ul>
