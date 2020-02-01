@@ -45,7 +45,7 @@
                             <ul class="post-meta">
                                 <li><i class="fa fa-user"></i>posted by <a href="#">{{ $post->user->name }}</a>
                                 </li>
-                                @if (request()->category)
+                                @if ($post->category)
                                     <li><i class="fa fa-folder-open"></i>  <a href="/posts/category{{ $post->categry_id }}">{{ $post->category->name }}</a>
                                     </li>
                                 @endif
