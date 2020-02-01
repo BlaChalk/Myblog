@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\StoreBlogPost;
 use App\Post;
 use Illuminate\Http\Request;
@@ -35,8 +36,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post;
-
-        return view('/posts.create', ['post' => $post]);
+        $categories = Category::all();
+        return view('/posts.create', ['post' => $post], ['categories' => $categories]);
     }
 
     /**
@@ -77,7 +78,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('/posts.edit', ['post' => $post]);
+        $categories = Category::all();
+
+        return view('/posts.edit', ['post' => $post], ['categories' => $categories]);
     }
 
     /**
