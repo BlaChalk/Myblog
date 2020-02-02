@@ -19,8 +19,8 @@
         <input type="hidden" name="_method" value="put">
     @endif
     <div class="form-group">
-        <label for="exampleInputTitle1">Title</label>
-        <input type="text" class="form-control" name="title" id="exampleInputTitle" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $post->title }}">
+        <label for="InputTitle1">Title</label>
+        <input type="text" class="form-control" name="title" id="InputTitle" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $post->title }}">
         <small id="titleHelp" class="form-text text-muted">This title will show on the posts menu.</small>
     </div>
     <div class="form-group">
@@ -32,6 +32,11 @@
                     {{ $category->name }}</option>
             @endforeach
         </select>
+    </div>
+    <div class="form-group">
+        <label for="InputTags1">Tags</label>
+        <input type="text" class="form-control" name="tags" id="InputTags" aria-describedby="TagsHelp" placeholder="Enter Tags" value="">
+        <small id="tagsHelp" class="form-text text-muted">Please use , to separate the tags. </small>
     </div>
     <div class="form-group">
       <label for="InputContent1">Content</label>
