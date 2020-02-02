@@ -64,14 +64,19 @@ class PostController extends Controller
         $post->save();
 
         $tags = explode(',', $request->tags);
+        $this->addTagsToPost($tags, $post);
+
+        return redirect('/posts/admin');
+    }
+
+    public function addTagsToPost($tags, $post)
+    {
         foreach ($tags as $key => $tag) {
             // create $ load tags
             $model = Tag::firstOrCreate(['name' => $tag]);
             // connect posts & tags
             $post->tags()->attach($model->id);
         }
-
-        return redirect('/posts/admin');
     }
 
     /**
@@ -115,6 +120,10 @@ class PostController extends Controller
     {
         $post->fill($request->all());
         $post->save();
+
+        $post->tags()->detach();
+        $tags = explode(',', $request->tags);
+        $this->addTagsToPost($tags, $post);
 
         return redirect('/posts/admin');
     }

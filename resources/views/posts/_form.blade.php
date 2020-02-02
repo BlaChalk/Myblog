@@ -35,7 +35,7 @@
     </div>
     <div class="form-group">
         <label for="InputTags1">Tags</label>
-        <input type="text" class="form-control" name="tags" id="InputTags" aria-describedby="TagsHelp" placeholder="Enter Tags" value="">
+    <input type="text" class="form-control" name="tags" id="InputTags" aria-describedby="TagsHelp" placeholder="Enter Tags" value="{{ $post->tagsString() }}">
         <small id="tagsHelp" class="form-text text-muted">Please use , to separate the tags. </small>
     </div>
     <div class="form-group">
