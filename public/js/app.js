@@ -49526,6 +49526,50 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+deletePost = function deletePost(id) {
+  var result = confirm('Do you want to delete this post?');
+
+  if (result) {
+    var actionURL = '/posts/' + id;
+    $.post(actionURL, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/posts/admin';
+    });
+  }
+};
+
+deleteCategory = function deleteCategory(id) {
+  var result = confirm('Do you want to delete this category?');
+
+  if (result) {
+    var actionURL = '/categories/' + id;
+    $.post(actionURL, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/categories';
+    });
+  }
+};
+
+deleteTags = function deleteTags(id) {
+  var result = confirm('Do you want to delete this tag?');
+
+  if (result) {
+    var actionURL = '/tags/' + id;
+    $.post(actionURL, {
+      _method: 'delete'
+    }).done(function () {
+      location.href = '/tags';
+    });
+  }
+};
 
 /***/ }),
 
