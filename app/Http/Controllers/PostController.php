@@ -87,13 +87,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        if(Auth::check())
-            return view('/posts.showByAdmin', ['post' => $post]);
-        else{
             $categories = Category::all();
             return view('/posts.show', ['post' => $post, 'categories' => $categories]);
-        }
+    }
 
+    public function showByAdmin(Type $var = null)
+    {
+        return view('/posts.showByAdmin', ['post' => $post]);
     }
 
     /**
