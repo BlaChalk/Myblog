@@ -56,3 +56,13 @@ deleteCategory = function (id) {
         })
     }
 }
+
+deleteTags = function (id) {
+    let result = confirm('Do you want to delete this tag?');
+    if (result) {
+    let actionURL = '/tags/'+id;
+        $.post(actionURL, {_method: 'delete'}).done(function () {
+            location.href = '/tags';
+        })
+    }
+}

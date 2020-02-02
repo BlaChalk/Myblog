@@ -29,14 +29,19 @@ Route::get('/contact', function () {
 // CRUD
 // Routing: create / edit / list
 
-Route::get('/posts/admin', 'PostController@admin')->middleware('auth');
-Route::resource('/posts', 'PostController')->middleware('auth');
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/posts/admin', 'PostController@admin');
+    Route::resource('/posts', 'PostController');
+    Route::resource('/categories', 'CategoryController')->except('show');
+    Route::resource('/tags', 'TagController')->only(['index', 'destroy']);
+});
+
+// Post
 Route::get('/posts', 'PostController@index');
 Route::get('/posts/{post}', 'PostController@show');
 
 // Category
-
-Route::resource('categories', 'CategoryController')->except('show')->middleware('auth');
 Route::get('/posts/category/{category}', 'PostController@indexWithCategory');
 //
 
