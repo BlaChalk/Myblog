@@ -25,8 +25,11 @@
 
         <h1 class="mb-0">{{ $post->title }}</h1>
         @if (isset($post->category))
-            <small class="d-block text-muted">Category / {{$post->category->name }}</small>
-         @endif
+            <small class="d-block text-muted">Category / {{ $post->category->name }}</small>
+        @endif
+        @if ($post->tags->count()>0)
+            <small class="d-block text-muted">Tags / {{ $post->tagsString() }}</small>
+        @endif
         <small class="author">Author / {{ $post->user->name }}</small>
         <div class="toolbox clearfix mt-4">
             <div class="float-left">
