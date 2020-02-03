@@ -43,6 +43,9 @@ Route::get('/posts/{post}', 'PostController@show');
 
 // Category
 Route::get('/posts/category/{category}', 'PostController@indexWithCategory');
+
+// Tags
+Route::get('/posts/tag/{tag}', 'PostController@indexWithTag');
 //
 
 Auth::routes();

@@ -1,5 +1,13 @@
- <!--latest post widget-->
- <div class="widget">
+@php
+    use App\Category;
+    use App\Tag;
+
+    $categories = Category::all();
+    $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count', 'desc')->get();
+@endphp
+
+<!--latest post widget-->
+<div class="widget">
     <div class="heading-title-alt text-left heading-border-bottom">
         <h6 class="text-uppercase">latest post</h6>
     </div>
@@ -80,13 +88,9 @@
         <h6 class="text-uppercase">tag cloud</h6>
     </div>
     <div class="widget-tags">
-        <a href="">Portfolio</a>
-        <a href="">Design</a>
-        <a href="">Link</a>
-        <a href="">Gallery</a>
-        <a href="">Video</a>
-        <a href="">Clean</a>
-        <a href="">Retina</a>
+        @foreach ($tags as $item => $tag)
+            <a href="/posts/tag/{{ $tag->id }}">{{ $tag->name }}</a>
+        @endforeach
     </div>
 </div>
 <!--tags widget-->

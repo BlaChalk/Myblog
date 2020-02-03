@@ -26,16 +26,22 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        $categories = Category::all();
 
-        return view('/posts.index', ['posts' => $posts], ['categories' => $categories]);
+        return view('/posts.index', ['posts' => $posts]);
     }
 
     public function indexWithCategory(Category $category)
     {
         $posts = Post::where('category_id', $category->id)->get();
-        $categories = Category::all();
-        return view('/posts.index', ['posts' => $posts], ['categories' => $categories]);
+
+        return view('/posts.index', ['posts' => $posts]);
+    }
+
+    public function indexWithTag(Tag $tag)
+    {
+        $posts = $tag->posts;
+
+        return view('/posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -91,7 +97,7 @@ class PostController extends Controller
             return view('/posts.show', ['post' => $post, 'categories' => $categories]);
     }
 
-    public function showByAdmin(Type $var = null)
+    public function showByAdmin(Post $post)
     {
         return view('/posts.showByAdmin', ['post' => $post]);
     }
