@@ -63,19 +63,25 @@ class PostController extends Controller
      */
     public function store(StoreBlogPost $request)
     {
-        $path = $request->file('thumbnail')->store('public');
-        $path = str_replace('public/', '/storage/', $path);
 
         $post = new Post;
         $post->fill($request->all());
         $post->user_id = Auth::id();
-        $post->thumbnail = $path;
+        $post->thumbnail = $this->addThnumbnail($request);
         $post->save();
 
         $tags = $this->stringToTags($request->tags);
         $this->addTagsToPost($tags, $post);
 
         return redirect('/posts/admin');
+    }
+
+    private function addThnumbnail($request)
+    {
+            $path = $request->file('thumbnail')->store('public');
+            $path = str_replace('public/', '/storage/', $path);
+
+            return $path;
     }
 
     private function stringToTags($string)
@@ -139,6 +145,10 @@ class PostController extends Controller
     public function update(StoreBlogPost $request, Post $post)
     {
         $post->fill($request->all());
+
+        if(!is_null($request->file('thumbnail')))
+            $post->thumbnail = $this->addThnumbnail($request);
+
         $post->save();
 
         $post->tags()->detach();
