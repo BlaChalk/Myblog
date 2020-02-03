@@ -28,7 +28,7 @@
             @foreach ($posts as $item => $post)
              <li  class="list-group-item clearfix">
                 <div class="float-left">
-                    <div><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></div>
+                    <div><a href="/posts/{{ $post->id }}/showByAdmin">{{ $post->title }}</a></div>
                     @if (isset($post->category))
                         <small class="d-block text-muted">{{ $post->category->name }}</small>
                     @endif
