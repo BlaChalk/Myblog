@@ -32,6 +32,7 @@ Route::get('/contact', function () {
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/posts/admin', 'PostController@admin');
+    Route::get('/posts/{post}/showByAdmin', 'PostController@showByAdmin');
     Route::resource('/posts', 'PostController');
     Route::resource('/categories', 'CategoryController')->except('show');
     Route::resource('/tags', 'TagController')->only(['index', 'destroy']);

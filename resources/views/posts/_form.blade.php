@@ -13,7 +13,7 @@
 </div>
 @endif
 
-<form method="post" action="{{ $actionURL }}">
+<form method="post" action="{{ $actionURL }}" enctype="multipart/form-data">
     @csrf
     @if (!$isCreate)
         <input type="hidden" name="_method" value="put">
@@ -22,6 +22,13 @@
         <label for="InputTitle1">Title</label>
         <input type="text" class="form-control" name="title" id="InputTitle" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $post->title }}">
         <small id="titleHelp" class="form-text text-muted">This title will show on the posts menu.</small>
+    </div>
+    <div class="form-group">
+        <label for="InputThumbnail1">Thumbnail</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="thumbnail" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
     </div>
     <div class="form-group">
         <label for="InputCategory1">Category</label>
