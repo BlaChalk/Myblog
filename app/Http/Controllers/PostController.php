@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\StoreBlogPost;
 use App\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Tag;
 
@@ -69,13 +68,24 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $post->save();
 
-        $tags = explode(',', $request->tags);
+        $tags = $this->stringToTags($request->tags);
         $this->addTagsToPost($tags, $post);
 
         return redirect('/posts/admin');
     }
 
-    public function addTagsToPost($tags, $post)
+    private function stringToTags($string)
+    {
+        $tags = explode(',', $string);
+        $tags = array_filter($tags);
+        foreach ($tags as $key => $tag) {
+            $tags[$key] = trim($tag);
+        }
+
+        return $tags;
+    }
+
+    private function addTagsToPost($tags, $post)
     {
         foreach ($tags as $key => $tag) {
             // create $ load tags
@@ -93,8 +103,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-            $categories = Category::all();
-            return view('/posts.show', ['post' => $post, 'categories' => $categories]);
+        $categories = Category::all();
+        return view('/posts.show', ['post' => $post, 'categories' => $categories]);
     }
 
     public function showByAdmin(Post $post)
@@ -128,7 +138,7 @@ class PostController extends Controller
         $post->save();
 
         $post->tags()->detach();
-        $tags = explode(',', $request->tags);
+        $tags = $this->stringToTags($request->tags);
         $this->addTagsToPost($tags, $post);
 
         return redirect('/posts/admin');
